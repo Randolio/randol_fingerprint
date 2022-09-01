@@ -44,7 +44,7 @@ AddEventHandler('randol:client:policetablet', function()
     end
 end)
 
-RegisterNetEvent('randol_fingerprint:client:psmdt', function() -- Had to convert the /mdt command to an event. Shooutout to Project Sloth <3
+RegisterNetEvent('randol_fingerprint:client:psmdt', function() -- Had to convert the /mdt command to an event. Shoutout to Project Sloth <3
     local plyPed = PlayerPedId()
     PlayerData = QBCore.Functions.GetPlayerData()
     if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() then
