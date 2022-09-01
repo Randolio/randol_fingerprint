@@ -44,7 +44,7 @@ AddEventHandler('randol:client:policetablet', function()
     end
 end)
 
-RegisterNetEvent('randol_fingerprint:client:psmdt', function() -- Had to convert the /mdt command to an event. Shoutout to Project Sloth <3
+RegisterNetEvent('randol_fingerprint:client:psmdt', function()
     local plyPed = PlayerPedId()
     PlayerData = QBCore.Functions.GetPlayerData()
     if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() then
@@ -66,6 +66,7 @@ end)
 RegisterNetEvent('randolio:client:fingerprintmenu') 
 AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
     if psmdt then
+        name = pdata.charinfo.firstname..' '..pdata.charinfo.lastname
         exports['qb-menu']:openMenu({
             {
                 header = "Fingerprint Scanner",
@@ -76,6 +77,7 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 header = "Print Information",
                 txt = 'Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
                 icon = "fa-solid fa-fingerprint",
+                isMenuHeader = true
             },
             {
                 header = "Open MDT",
@@ -92,6 +94,8 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 }
             },
         })
+        Wait(1000)
+        TriggerEvent("randol_fingerprint:copyToClipBoard", name)
     else
         exports['qb-menu']:openMenu({
             {
@@ -103,6 +107,7 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 header = "Print Information",
                 txt = 'Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
                 icon = "fa-solid fa-fingerprint",
+                isMenuHeader = true
             },
             {
                 header = "Exit",
@@ -113,4 +118,13 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
             },
         })
     end
+end)
+
+RegisterNetEvent("randol_fingerprint:copyToClipBoard")
+AddEventHandler("randol_fingerprint:copyToClipBoard", function(data)
+    QBCore.Functions.Notify("Name Auto Copied: "..data)
+    SendNUIMessage({
+        type = "clipboard",
+        data = "" ..data
+    })
 end)

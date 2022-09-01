@@ -16,4 +16,10 @@ server_scripts {
 	"sv_fingerprint.lua"
 }
 
+ui_page 'index.html'
+
+files {
+    '*.*'
+}
+
 lua54 'yes'
