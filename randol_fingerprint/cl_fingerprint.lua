@@ -1,7 +1,13 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local PlayerJob = {}
 
-psmdt = true -- Set to true if you want the "Open MDT" option to appear on the fingerprint menu. (ps-mdt)
+--
+
+UseMDT = true -- Set to true if you want to use MDT option on the fingerprint menu. (true/false)
+
+Event = "randol_fingerprint:client:psmdt" -- The event to trigger for your MDT. (I MADE A PS-MDT EVENT TO TRIGGER BY DEFAULT SO IF YOU USE PS-MDT, LEAVE IT AS IT IS.)
+
+--
 
 AddEventHandler('onResourceStart', function(resourceName)
     if GetCurrentResourceName() == resourceName then
@@ -65,7 +71,7 @@ end)
 
 RegisterNetEvent('randolio:client:fingerprintmenu') 
 AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
-    if psmdt then
+    if UseMDT then
         name = pdata.charinfo.firstname..' '..pdata.charinfo.lastname
         exports['qb-menu']:openMenu({
             {
@@ -74,8 +80,8 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 isMenuHeader = true
             },
             {
-                header = "Print Information",
-                txt = 'Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
+                header = "",
+                txt = 'Print ID: '..pdata.metadata.fingerprint..'</p>Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
                 icon = "fa-solid fa-fingerprint",
                 isMenuHeader = true
             },
@@ -83,7 +89,7 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 header = "Open MDT",
                 icon = "fa-solid fa-laptop",
                 params = {
-                    event = "randol_fingerprint:client:psmdt"
+                    event = Event
                 }
             },
             {
@@ -104,8 +110,8 @@ AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
                 isMenuHeader = true
             },
             {
-                header = "Print Information",
-                txt = 'Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
+                header = "",
+                txt = 'Print ID: '..pdata.metadata.fingerprint..'</p>Name: '..pdata.charinfo.firstname..' '..pdata.charinfo.lastname..'</p>Citizen ID: '..pdata.citizenid..'</p>State ID: '..pdata.source..'',
                 icon = "fa-solid fa-fingerprint",
                 isMenuHeader = true
             },
