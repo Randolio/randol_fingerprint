@@ -71,8 +71,8 @@ end)
 
 RegisterNetEvent('randolio:client:fingerprintmenu') 
 AddEventHandler('randolio:client:fingerprintmenu', function(pdata)
+name = pdata.charinfo.firstname..' '..pdata.charinfo.lastname
     if UseMDT then
-        name = pdata.charinfo.firstname..' '..pdata.charinfo.lastname
         exports['qb-menu']:openMenu({
             {
                 header = "Fingerprint Scanner",
