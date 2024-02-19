@@ -2,6 +2,8 @@
 
 An easy way for police to scan a player's fingerprint if they don't have any way of identifying themselves. (traffic stop etc..)
 
+This now utilizes job type 'leo'. Make sure your police jobs have this type in the jobs.lua.
+
 Preview: (https://i.imgur.com/InNRQuq.png)
 
 ## Requirements
