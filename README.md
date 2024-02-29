@@ -1,4 +1,4 @@
-## Randolio: Fingerprint (Rewritten) - 19/02/2024
+## Randolio: Fingerprint (Rewritten) - 29/02/2024
 
 An easy way for police to scan a player's fingerprint if they don't have any way of identifying themselves. (traffic stop etc..)
 
@@ -8,11 +8,11 @@ Preview: (https://i.imgur.com/InNRQuq.png)
 
 ## Requirements
 
-* [ox_lib](https://github.com/overextended/ox_lib/releases/tag/v3.16.2)
+* [ox_lib](https://github.com/overextended/ox_lib/releases/)
 
 ## Item:
 
-Add this item to your qb-core > shared > items.lua.
+if qb-inventory, Add this item to your qb-core > shared > items.lua.
 
 ```
 ["policetablet"] = {
@@ -26,6 +26,21 @@ Add this item to your qb-core > shared > items.lua.
 	["shouldClose"] = true,
 	["combinable"] = nil,
 	["description"] = "A mobile fingerprint tablet."
+},
+```
+
+if ox_inventory, add this to ox inventory items.lua
+
+```
+["policetablet"] = {
+	label = "Police Tablet",
+	weight = 5000,
+	stack = false,
+	close = true,
+	description = "A mobile fingerprint tablet.",
+	client = {
+		image = "policetablet.png",
+	}
 },
 ```
 

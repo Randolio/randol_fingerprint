@@ -56,17 +56,11 @@ end
 
 RegisterNetEvent('randol_fingerprint:client:usedTablet', function()
     if GetInvokingResource() then return end
-    
-    if PlayerData.job.type ~= 'leo' then
-        return QBCore.Functions.Notify('This tablet is encrypted.', 'error')
-    end
 
     local coords = GetEntityCoords(cache.ped)
-    local player = lib.getClosestPlayer(coords, 1.5, false)
+    local player = lib.getClosestPlayer(coords, 2.0, false)
     
-    if not player then
-        return QBCore.Functions.Notify('Nobody close enough to scan.', 'error')
-    end
+    if not player then return QBCore.Functions.Notify('Nobody close enough to scan.', 'error') end
 
     toggleTablet(true)
     QBCore.Functions.Progressbar('scan_finger', 'Attempting to scan finger..', 5000, false, true, {
