@@ -16,16 +16,16 @@ if qb-inventory, Add this item to your qb-core > shared > items.lua.
 
 ```
 ["policetablet"] = {
-	["name"] = "policetablet",
-	["label"] = "Police Tablet",
-	["weight"] = 5000,
-	["type"] = "item",
-	["image"] = "policetablet.png",
-	["unique"] = true,
-	['useable'] = true,
-	["shouldClose"] = true,
-	["combinable"] = nil,
-	["description"] = "A mobile fingerprint tablet."
+    ["name"] = "policetablet",
+    ["label"] = "Police Tablet",
+    ["weight"] = 5000,
+    ["type"] = "item",
+    ["image"] = "policetablet.png",
+    ["unique"] = true,
+    ['useable'] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A mobile fingerprint tablet."
 },
 ```
 
@@ -33,14 +33,14 @@ if ox_inventory, add this to ox inventory items.lua
 
 ```
 ["policetablet"] = {
-	label = "Police Tablet",
-	weight = 5000,
-	stack = false,
-	close = true,
-	description = "A mobile fingerprint tablet.",
-	client = {
-		image = "policetablet.png",
-	}
+    label = "Police Tablet",
+    weight = 5000,
+    stack = false,
+    close = true,
+    description = "A mobile fingerprint tablet.",
+    client = {
+        image = "policetablet.png",
+    }
 },
 ```
 

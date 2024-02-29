@@ -13,7 +13,7 @@ lib.callback.register('randol_fingerprint:server:getPlayerInfo', function(source
 
     local Target = QBCore.Functions.GetPlayer(id)
 
-	if not Target then return false end
+    if not Target then return false end
 
     local dist = #(GetEntityCoords(GetPlayerPed(src)) - GetEntityCoords(GetPlayerPed(id)))
 
